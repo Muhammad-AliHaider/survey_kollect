@@ -1,5 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:survey_kollect/components/button.dart';
+import 'package:survey_kollect/components/group_home_page_options.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -43,12 +45,237 @@ class HomePage extends StatelessWidget {
               width: MediaQuery.sizeOf(context).width,
               height: MediaQuery.sizeOf(context).height * 0.3,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 50, 0, 0),
+                padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        IconButton(
+                          onPressed: () => {
+                            showModalBottomSheet(
+                                isScrollControlled: true,
+                                constraints: BoxConstraints(
+                                  maxHeight:
+                                      MediaQuery.of(context).size.height * 0.5,
+                                ),
+                                context: context,
+                                builder: (context) {
+                                  return Container(
+                                    decoration: BoxDecoration(
+                                        // color:
+                                        //     Color.fromARGB(255, 56, 139, 175),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                            colors: [
+                                              // Color.fromARGB(255, 54, 187, 244),
+                                              // Color.fromARGB(255, 28, 14, 13),
+                                              Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                              Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
+                                            ]),
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20),
+                                        )),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            "Add Project",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                            ),
+                                          ),
+                                          const Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                child: Divider(
+                                                  color: Colors.white,
+                                                  thickness: 2,
+                                                  indent: 10,
+                                                  endIndent: 10,
+                                                  height: 10,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          ListView(
+                                            shrinkWrap: true,
+                                            children: [
+                                              Card(
+                                                child: ListTile(
+                                                  title: Text(
+                                                    "Project 1",
+                                                    style: TextStyle(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              112,
+                                                              193,
+                                                              220),
+                                                      fontSize: 20,
+                                                    ),
+                                                  ),
+                                                  trailing: IconButton(
+                                                    onPressed: () => {},
+                                                    icon: Icon(
+                                                      Icons.delete,
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              112,
+                                                              193,
+                                                              220),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Card(
+                                                child: ListTile(
+                                                  title: Text(
+                                                    "Project 1",
+                                                    style: TextStyle(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              112,
+                                                              193,
+                                                              220),
+                                                      fontSize: 20,
+                                                    ),
+                                                  ),
+                                                  trailing: IconButton(
+                                                    onPressed: () => {},
+                                                    icon: Icon(
+                                                      Icons.delete,
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              112,
+                                                              193,
+                                                              220),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Card(
+                                                shadowColor: Colors.black,
+                                                child: ListTile(
+                                                  title: Text(
+                                                    "Project 1",
+                                                    style: TextStyle(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              112,
+                                                              193,
+                                                              220),
+                                                      fontSize: 20,
+                                                    ),
+                                                  ),
+                                                  trailing: IconButton(
+                                                    onPressed: () => {},
+                                                    icon: Icon(
+                                                      Icons.delete,
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              112,
+                                                              193,
+                                                              220),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Card(
+                                                child: ListTile(
+                                                  title: Text(
+                                                    "Project 1",
+                                                    style: TextStyle(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              112,
+                                                              193,
+                                                              220),
+                                                      fontSize: 20,
+                                                    ),
+                                                  ),
+                                                  trailing: IconButton(
+                                                    onPressed: () => {},
+                                                    icon: Icon(
+                                                      Icons.delete,
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              112,
+                                                              193,
+                                                              220),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              ElevatedButton.icon(
+                                                onPressed: () => {},
+                                                style: ElevatedButton.styleFrom(
+                                                  foregroundColor:
+                                                      const Color.fromARGB(
+                                                          255, 112, 193, 220),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                ),
+                                                label: Text("Add Project"),
+                                                icon: Icon(Icons.qr_code_2),
+                                              )
+                                              // ListTile(
+                                              //   onTap: () => {},
+                                              //   title: const Text(
+                                              //     "Add Project",
+                                              //     style: TextStyle(
+                                              //       color: const Color.fromARGB(
+                                              //           255, 112, 193, 220),
+                                              //       fontSize: 20,
+                                              //     ),
+                                              //   ),
+                                              // )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                })
+                          },
+                          icon: Icon(Icons.settings),
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                      ],
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
@@ -56,7 +283,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.25,
-                          height: MediaQuery.sizeOf(context).height * 0.15,
+                          height: MediaQuery.sizeOf(context).height * 0.12,
                           child: const CircleAvatar(
                             foregroundColor: Color.fromARGB(255, 28, 14, 13),
                             backgroundColor: Color.fromARGB(255, 54, 187, 244),
@@ -106,117 +333,9 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
+            const Expanded(
               child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      CustomButton(
-                        onPressed: () => {},
-                        text: "Fill Blank Form",
-                        width: MediaQuery.sizeOf(context).width,
-                        height: MediaQuery.sizeOf(context).height * 0.095,
-                        backgroundColor: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Theme.of(context).colorScheme.primary,
-                              Theme.of(context).colorScheme.secondary,
-                            ]),
-                        textColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderWidth: 1,
-                        borderRadius: 25,
-                      ),
-                      CustomButton(
-                        onPressed: () => {},
-                        text: "Edit Blank Form",
-                        width: MediaQuery.sizeOf(context).width,
-                        height: MediaQuery.sizeOf(context).height * 0.095,
-                        backgroundColor: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Theme.of(context).colorScheme.primary,
-                              Theme.of(context).colorScheme.secondary,
-                            ]),
-                        textColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderWidth: 1,
-                        borderRadius: 25,
-                      ),
-                      CustomButton(
-                        onPressed: () => {},
-                        text: "Send Finalized Form",
-                        width: MediaQuery.sizeOf(context).width,
-                        height: MediaQuery.sizeOf(context).height * 0.095,
-                        backgroundColor: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Theme.of(context).colorScheme.primary,
-                              Theme.of(context).colorScheme.secondary,
-                            ]),
-                        textColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderWidth: 1,
-                        borderRadius: 25,
-                      ),
-                      CustomButton(
-                        onPressed: () => {},
-                        text: "View Sent Form",
-                        width: MediaQuery.sizeOf(context).width,
-                        height: MediaQuery.sizeOf(context).height * 0.095,
-                        backgroundColor: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Theme.of(context).colorScheme.primary,
-                              Theme.of(context).colorScheme.secondary,
-                            ]),
-                        textColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderWidth: 1,
-                        borderRadius: 25,
-                      ),
-                      CustomButton(
-                        onPressed: () => {},
-                        text: "Get Blank Form",
-                        width: MediaQuery.sizeOf(context).width,
-                        height: MediaQuery.sizeOf(context).height * 0.095,
-                        backgroundColor: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Theme.of(context).colorScheme.primary,
-                              Theme.of(context).colorScheme.secondary,
-                            ]),
-                        textColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderWidth: 1,
-                        borderRadius: 25,
-                      ),
-                      CustomButton(
-                        onPressed: () => {},
-                        text: "Delete Saved Form",
-                        width: MediaQuery.sizeOf(context).width,
-                        height: MediaQuery.sizeOf(context).height * 0.095,
-                        backgroundColor: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Theme.of(context).colorScheme.primary,
-                              Theme.of(context).colorScheme.secondary,
-                            ]),
-                        textColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderColor: const Color.fromARGB(255, 112, 193, 220),
-                        borderWidth: 1,
-                        borderRadius: 25,
-                      ),
-                    ],
-                  )),
+                  padding: EdgeInsets.all(8.0), child: GroupHomePageOptions()),
             )
           ],
         ),
