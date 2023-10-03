@@ -10,7 +10,8 @@ class CustomButton extends StatefulWidget {
       required this.textColor,
       required this.backgroundColor,
       required this.borderColor,
-      required this.borderWidth})
+      required this.borderWidth,
+      this.borderRadius})
       : super(key: key);
 
   final VoidCallback onPressed;
@@ -21,6 +22,7 @@ class CustomButton extends StatefulWidget {
   final Gradient backgroundColor;
   final Color borderColor;
   final double borderWidth;
+  final double? borderRadius;
 
   @override
   State<CustomButton> createState() => _CustomButtonState();
@@ -32,7 +34,7 @@ class _CustomButtonState extends State<CustomButton> {
     return Container(
       decoration: BoxDecoration(
           gradient: widget.backgroundColor,
-          borderRadius: BorderRadius.circular(40.0),
+          borderRadius: BorderRadius.circular(widget.borderRadius ?? 40.0),
           border:
               Border.all(color: widget.borderColor, width: widget.borderWidth)),
       width: widget.width,
@@ -40,6 +42,9 @@ class _CustomButtonState extends State<CustomButton> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             foregroundColor: widget.textColor,
+            shape: RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.circular(widget.borderRadius ?? 40.0)),
             backgroundColor: const Color.fromARGB(0, 255, 255, 255)),
         onPressed: widget.onPressed,
         child: Text(widget.text),

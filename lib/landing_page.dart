@@ -38,11 +38,11 @@ class LandingPage extends StatelessWidget {
                                 )),
                           ),
                           Container(
-                            color: Color.fromARGB(0, 144, 68, 1),
+                            color: const Color.fromARGB(0, 144, 68, 1),
                             child: Image.asset(
                               'assets/svgs/logo.png',
-                              width: 120,
-                              height: 123,
+                              width: MediaQuery.sizeOf(context).width * 0.35,
+                              height: MediaQuery.sizeOf(context).height * 0.15,
                             ),
                           ),
                           const Spacer(),
@@ -198,8 +198,8 @@ class LandingPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 50.0,
+                          SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.05,
                           )
                         ]),
                   ),

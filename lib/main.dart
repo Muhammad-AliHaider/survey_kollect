@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:survey_kollect/inApplication/home_page.dart';
 import 'package:survey_kollect/landing_page.dart';
 import 'package:survey_kollect/onBoarding/login_page.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       title: 'Survey Kollect',
       routes: {
         '/': (context) => const LandingPage(),
-        '/login': (context) => const LoginPage()
+        '/login': (context) => const LoginPage(),
+        '/home': (context) => const HomePage()
         // '/landing': (context) => const LandingPage(),
       },
       theme: ThemeData(
