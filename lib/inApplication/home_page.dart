@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:survey_kollect/components/font_controller.dart';
+import 'package:survey_kollect/components/forms_select.dart';
 import 'package:survey_kollect/components/group_home_page_options.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,19 +12,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         body: Stack(
       children: [
-        Container(
-          width: MediaQuery.sizeOf(context).width,
-          height: MediaQuery.sizeOf(context).height,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Theme.of(context).colorScheme.primary,
-                  Theme.of(context).colorScheme.secondary,
-                ]),
-          ),
-        ),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -38,8 +27,8 @@ class HomePage extends StatelessWidget {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
+                      Theme.of(context).colorScheme.primary,
                       Theme.of(context).colorScheme.secondary,
-                      const Color(0xFFB1E0E7),
                     ]),
               ),
               width: MediaQuery.sizeOf(context).width,
@@ -82,7 +71,7 @@ class HomePage extends StatelessWidget {
                                                   .colorScheme
                                                   .secondary,
                                             ]),
-                                        borderRadius: BorderRadius.only(
+                                        borderRadius: const BorderRadius.only(
                                           topLeft: Radius.circular(20),
                                           topRight: Radius.circular(20),
                                         )),
@@ -249,20 +238,32 @@ class HomePage extends StatelessWidget {
                                                             10),
                                                   ),
                                                 ),
-                                                label: Text("Add Project"),
-                                                icon: Icon(Icons.qr_code_2),
-                                              )
-                                              // ListTile(
-                                              //   onTap: () => {},
-                                              //   title: const Text(
-                                              //     "Add Project",
-                                              //     style: TextStyle(
-                                              //       color: const Color.fromARGB(
-                                              //           255, 112, 193, 220),
-                                              //       fontSize: 20,
-                                              //     ),
-                                              //   ),
-                                              // )
+                                                label:
+                                                    const Text("Add Project"),
+                                                icon:
+                                                    const Icon(Icons.qr_code_2),
+                                              ),
+                                              ElevatedButton.icon(
+                                                onPressed: () => {
+                                                  showModalBottomSheet(
+                                                      context: context,
+                                                      builder: (context) =>
+                                                          const FontController())
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  foregroundColor:
+                                                      const Color.fromARGB(
+                                                          255, 112, 193, 220),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                ),
+                                                label: const Text("Font Size"),
+                                                icon: const Icon(
+                                                    Icons.font_download),
+                                              ),
                                             ],
                                           )
                                         ],
