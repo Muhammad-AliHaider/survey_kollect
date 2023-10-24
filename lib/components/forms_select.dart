@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:survey_kollect/components/custom_card_forms_select.dart';
+import 'package:survey_kollect/components/questions_page.dart';
 import 'package:survey_kollect/data/form_data.dart';
 
 class FormsSelect extends StatefulWidget {
@@ -37,11 +38,32 @@ class _FormsSelectState extends State<FormsSelect> {
         child: ListView.builder(
             itemCount: MockData.length,
             itemBuilder: (context, index) {
-              return CustomCardForms(
+              return InkWell(
+                onLongPress: () => {
+                  HapticFeedback.lightImpact(),
+                },
+                child: CustomCardForms(
+                  showSelect: false,
                   formName: MockData[index]["Name"],
                   formDetails: MockData[index]["Details"],
                   icon: Icons.gps_fixed_outlined,
-                  showIcon: MockData[index]["Icon"]);
+                  showIcon: MockData[index]["Icon"],
+                  onClick: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => QuestionsPage(
+                                question: 'Question ${1}',
+                                getLocation: true,
+                                isText: true,
+                                isRadio: true,
+                                isRequired: true,
+                                skipTo: null,
+                                questionNumber: 1,
+                                title: "Questions")))
+                  },
+                ),
+              );
             }),
       ),
     );

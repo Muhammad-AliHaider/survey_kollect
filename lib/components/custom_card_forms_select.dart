@@ -8,13 +8,21 @@ class CustomCardForms extends StatelessWidget {
       required this.formName,
       required this.formDetails,
       required this.icon,
-      required this.showIcon})
+      required this.showIcon,
+      required this.onClick,
+      this.showSelect,
+      this.handleCheck,
+      this.selectedForms})
       : super(key: key);
 
   final String formName;
   final String formDetails;
   final IconData icon;
   final bool showIcon;
+  final VoidCallback onClick;
+  final VoidCallback? handleCheck;
+  bool? showSelect;
+  bool? selectedForms;
 
   FontManager fontManager = FontManager.getInstance();
 
@@ -24,7 +32,10 @@ class CustomCardForms extends StatelessWidget {
       shadowColor: Theme.of(context).colorScheme.primary,
       color: Theme.of(context).colorScheme.surface,
       child: ListTile(
-        leading: Icon(Icons.article_rounded),
+        leading: showSelect == true
+            ? Checkbox(
+                value: selectedForms, onChanged: (value) => {handleCheck!})
+            : const Icon(Icons.article_rounded),
         title: Text(
           formName,
           style: TextStyle(
@@ -36,7 +47,8 @@ class CustomCardForms extends StatelessWidget {
                 color: Colors.black,
                 fontSize: fontManager.getCurrentSubHeadingSize().toDouble())),
         trailing: showIcon ? Icon(icon) : null,
-        onTap: () => {HapticFeedback.lightImpact()},
+        selected: true,
+        onTap: () => {onClick(), HapticFeedback.lightImpact()},
       ),
     );
   }
